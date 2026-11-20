@@ -67,17 +67,6 @@ export default function Hero() {
             {/* LEFT SIDE: Identity, Tagline, Introduction, and CTAs (7 Cols) */}
             <div className="lg:col-span-7 flex flex-col items-start text-left">
               
-              {/* Architectural Status Pill */}
-              <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface)]/80 backdrop-blur-md mb-6 shadow-sm">
-                <span className="flex h-2 w-2 relative">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                </span>
-                <span className="font-mono text-xs text-[var(--color-text-secondary)] tracking-wide">
-                  SYSTEM READY: <span className="text-[var(--color-secondary-accent)] font-semibold">FULL-STACK DEVELOPER</span>
-                </span>
-              </div>
-
               {/* Designation Sub-label */}
               <div className="flex items-center gap-2 mb-3 font-mono text-xs md:text-sm tracking-widest text-[var(--color-secondary-accent)] uppercase">
                 <Terminal className="w-4 h-4 text-[var(--color-primary-accent)]" />
@@ -192,10 +181,6 @@ export default function Hero() {
                     <span className="flex items-center gap-1.5 text-[var(--color-secondary-accent)]">
                       <Cpu className="w-3.5 h-3.5" />
                       ID // IRFAN_HOSSAIN
-                    </span>
-                    <span className="flex items-center gap-1 text-emerald-400">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
-                      ACTIVE DEV
                     </span>
                   </div>
 

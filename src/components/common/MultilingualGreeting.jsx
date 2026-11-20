@@ -26,7 +26,10 @@ const GREETINGS = [
 let hasPlayedIntroThisSession = false;
 
 export default function MultilingualGreeting() {
-  const [isDismissed, setIsDismissed] = useState(() => hasPlayedIntroThisSession);
+  const [isDismissed, setIsDismissed] = useState(() =>
+    hasPlayedIntroThisSession ||
+    (typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches)
+  );
   const [isExiting, setIsExiting] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const timersRef = useRef([]);
@@ -40,17 +43,8 @@ export default function MultilingualGreeting() {
     // Check for user's reduced-motion preference
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
     if (mediaQuery.matches) {
-      const exitTimer = setTimeout(() => {
-        setIsExiting(true);
-      }, 700);
-      const dismissTimer = setTimeout(() => {
-        setIsDismissed(true);
-        hasPlayedIntroThisSession = true;
-      }, 1000);
-      timersRef.current = [exitTimer, dismissTimer];
-      return () => {
-        timersRef.current.forEach(clearTimeout);
-      };
+      hasPlayedIntroThisSession = true;
+      return undefined;
     }
 
     // Standard timing: ~360ms per greeting, total sequence ~3.3s, fade-out to website by ~3.8s

@@ -253,8 +253,8 @@ function ContactForm() {
           aria-live="polite"
           className="p-3 rounded-xl border border-amber-400/30 bg-amber-400/8 text-amber-400 text-xs font-mono"
         >
-          📬 Your email client has been opened with this message pre-filled. No backend is currently
-          configured — please send the email manually.
+          📬 An email draft was requested with this message pre-filled. No backend is currently
+          configured — please send the message from your email app.
         </div>
       )}
 
@@ -377,7 +377,7 @@ function ContactForm() {
 
         {personalData.contactService.provider === 'mailto' && (
           <p className="text-[10px] font-mono text-[var(--color-text-muted)] max-w-xs">
-            * Opens your email client. No backend is currently configured.
+            * Uses your email app to draft a message. No backend is currently configured.
           </p>
         )}
       </div>
