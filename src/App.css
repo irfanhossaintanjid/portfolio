@@ -1,0 +1,69 @@
+/* ==========================================================================
+   Multilingual Animated Greeting Intro & Architectural Animations
+   ========================================================================== */
+
+/* Background Deep Midnight */
+.bg-midnight {
+  background-color: #0b1120;
+}
+
+/* Greeting Text Entrance Animation */
+@keyframes greetingEnter {
+  0% {
+    opacity: 0;
+    transform: scale(0.92) translateY(8px);
+    filter: blur(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0);
+  }
+}
+
+.animate-greeting-enter {
+  animation: greetingEnter 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Floating & Gentle Rotation for Decorative Symbols */
+@keyframes floatSymbolLeft {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-6px) rotate(-8deg);
+  }
+}
+
+@keyframes floatSymbolRight {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(6px) rotate(8deg);
+  }
+}
+
+.animate-symbol-left {
+  animation: floatSymbolLeft 3s ease-in-out infinite;
+}
+
+.animate-symbol-right {
+  animation: floatSymbolRight 3s ease-in-out infinite;
+}
+
+/* Subtle Animated Ambient Background Glow */
+@keyframes introGlowPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.45;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 0.75;
+  }
+}
+
+.animate-intro-glow {
+  animation: introGlowPulse 4s ease-in-out infinite;
+}

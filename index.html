@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Irfan Hossain | Full-Stack Developer</title>
+    <meta name="description" content="Irfan Hossain - Full-Stack Developer. Turning Ideas into Digital Solutions with clean code, scalable architecture, and intuitive user experiences." />
+    <meta name="author" content="Irfan Hossain" />
+    <meta name="theme-color" content="#0b1120" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://irfanhossain.dev/" />
+    <meta property="og:title" content="Irfan Hossain | Full-Stack Developer" />
+    <meta property="og:description" content="Turning Ideas into Digital Solutions. Explore full-stack projects, architecture case studies, and engineering capabilities." />
+    <meta property="og:image" content="/images/profile.jpg" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://irfanhossain.dev/" />
+    <meta name="twitter:title" content="Irfan Hossain | Full-Stack Developer" />
+    <meta name="twitter:description" content="Turning Ideas into Digital Solutions. Explore full-stack projects, architecture case studies, and engineering capabilities." />
+    <meta name="twitter:image" content="/images/profile.jpg" />
+
+    <link rel="canonical" href="https://irfanhossain.dev/" />
+
+    <!-- Inline Script to prevent Theme Flashing before hydration -->
+    <script>
+      (function() {
+        try {
+          var saved = localStorage.getItem('ih_portfolio_theme');
+          var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          if (saved === 'dark' || (!saved && prefersDark) || !saved) {
+            document.documentElement.classList.add('dark');
+            document.documentElement.classList.remove('light');
+          } else {
+            document.documentElement.classList.add('light');
+            document.documentElement.classList.remove('dark');
+          }
+        } catch (e) {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
+
+    <!-- Fonts: Inter & JetBrains Mono for Digital Architect aesthetic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-[var(--color-bg)] text-[var(--color-text-primary)] antialiased transition-colors duration-200">
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
