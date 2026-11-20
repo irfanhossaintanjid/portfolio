@@ -11,8 +11,12 @@ import {
   NextjsIcon,
   NodejsIcon,
   ExpressIcon,
+  MongodbIcon,
+  BetterAuthIcon,
   GitIcon,
-  VSCodeIcon
+  VSCodeIcon,
+  VercelIcon,
+  NetlifyIcon
 } from '../common/TechIcons';
 import { GithubIcon } from '../common/SocialIcons';
 
@@ -37,12 +41,14 @@ const SKILL_GROUPS = [
   {
     category: 'BACKEND',
     title: 'Server-Side Development',
-    description: 'Server runtime environments, RESTful routing, and backend application logic.',
+    description: 'Server runtimes, RESTful APIs, database persistence, and secure authentication.',
     icon: Server,
     accentColor: '#2563EB',
     skills: [
       { name: 'Node.js', icon: NodejsIcon, type: 'JavaScript Server Runtime' },
-      { name: 'Express.js', icon: ExpressIcon, type: 'REST API Framework' }
+      { name: 'Express.js', icon: ExpressIcon, type: 'REST API Framework' },
+      { name: 'MongoDB', icon: MongodbIcon, type: 'NoSQL Document Database' },
+      { name: 'Better Auth', icon: BetterAuthIcon, type: 'Authentication & Session Security' }
     ]
   },
   {
@@ -54,7 +60,9 @@ const SKILL_GROUPS = [
     skills: [
       { name: 'Git', icon: GitIcon, type: 'Version Control System' },
       { name: 'GitHub', icon: GithubIcon, type: 'Code Repository & Collaboration' },
-      { name: 'VS Code', icon: VSCodeIcon, type: 'Primary Code Editor' }
+      { name: 'VS Code', icon: VSCodeIcon, type: 'Primary Code Editor' },
+      { name: 'Vercel', icon: VercelIcon, type: 'Frontend Cloud & Edge Deployment' },
+      { name: 'Netlify', icon: NetlifyIcon, type: 'Cloud Hosting & CI/CD Platform' }
     ]
   }
 ];
@@ -148,8 +156,8 @@ export default function Skills() {
                           }`}
                         >
                           <div className="flex items-center gap-3">
-                            <div className="p-2 rounded-xl bg-[var(--color-surface)] border border-[var(--color-border-subtle)] group-hover:border-[var(--color-primary-accent)]/40 transition-colors shrink-0">
-                              <SkillIcon className="w-5 h-5" />
+                            <div className="w-10 h-10 rounded-xl bg-[var(--color-surface)] border border-[var(--color-border-subtle)] group-hover:border-[var(--color-primary-accent)]/40 transition-colors flex items-center justify-center shrink-0 shadow-sm">
+                              <SkillIcon className="w-5 h-5 shrink-0" />
                             </div>
                             <div>
                               <span className="text-sm font-bold text-[var(--color-text-primary)] group-hover:text-[var(--color-primary-accent)] transition-colors block">

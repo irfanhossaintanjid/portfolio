@@ -16,10 +16,12 @@ export const skillsData = [
   {
     category: 'BACKEND',
     title: 'Server-Side Development',
-    description: 'Server runtime environments, RESTful routing, and backend application logic.',
+    description: 'Server runtimes, RESTful APIs, database persistence, and secure authentication.',
     skills: [
       { name: 'Node.js', type: 'JavaScript Server Runtime' },
-      { name: 'Express.js', type: 'REST API Framework' }
+      { name: 'Express.js', type: 'REST API Framework' },
+      { name: 'MongoDB', type: 'NoSQL Document Database' },
+      { name: 'Better Auth', type: 'Authentication & Session Security' }
     ]
   },
   {
@@ -29,7 +31,9 @@ export const skillsData = [
     skills: [
       { name: 'Git', type: 'Version Control System' },
       { name: 'GitHub', type: 'Code Repository & Collaboration' },
-      { name: 'VS Code', type: 'Primary Code Editor' }
+      { name: 'VS Code', type: 'Primary Code Editor' },
+      { name: 'Vercel', type: 'Frontend Cloud & Edge Deployment' },
+      { name: 'Netlify', type: 'Cloud Hosting & CI/CD Platform' }
     ]
   }
 ];
