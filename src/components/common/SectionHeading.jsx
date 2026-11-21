@@ -1,5 +1,4 @@
 export default function SectionHeading({
-  number = '01',
   title,
   subtitle,
   align = 'left',
@@ -9,12 +8,6 @@ export default function SectionHeading({
 
   return (
     <div className={`mb-12 ${isCentered ? 'text-center' : 'text-left'} ${className}`}>
-      {/* Architectural Index Tag */}
-      <div className={`inline-flex items-center gap-2 mb-3 text-xs font-mono tracking-wider uppercase text-[var(--color-secondary-accent)] ${isCentered ? 'justify-center' : ''}`}>
-        <span className="w-2 h-2 rounded-full bg-[var(--color-primary-accent)] inline-block animate-pulse"></span>
-        <span>// {number}. ARCHITECTURE SPEC</span>
-      </div>
-
       {/* Main Title */}
       <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-[var(--color-text-primary)]">
         {title}

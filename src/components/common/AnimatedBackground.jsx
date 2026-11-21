@@ -29,13 +29,6 @@ export default function AnimatedBackground() {
         }}
       ></div>
 
-      {/* Subtle corner architectural coordinate markers */}
-      <div className="hidden lg:block absolute top-6 right-6 font-mono text-[10px] text-[var(--color-text-muted)] tracking-widest opacity-40 select-none">
-        LOC // 23.8103°N 90.4125°E
-      </div>
-      <div className="hidden lg:block absolute bottom-6 left-6 font-mono text-[10px] text-[var(--color-text-muted)] tracking-widest opacity-40 select-none">
-        SYS // ARCHITECT_FOUNDATION_v1.0
-      </div>
     </div>
   );
 }

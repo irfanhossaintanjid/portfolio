@@ -29,5 +29,6 @@ export const personalData = {
     provider: 'mailto', // 'mailto' | 'formspree' | 'custom'
     endpoint: '' // e.g. 'https://formspree.io/f/your_form_id'
   },
-  resumeUrl: '#resume'
+  resumeUrl: '/resume/IRFAN-HOSSAIN-Resume.pdf',
+  resumeFileName: 'IRFAN-HOSSAIN-Resume.pdf'
 };

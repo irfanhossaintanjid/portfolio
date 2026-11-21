@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Layout, Server, Wrench, Sparkles } from 'lucide-react';
+import { Layout, Server, Wrench } from 'lucide-react';
 import SectionHeading from '../common/SectionHeading';
 import {
   HtmlIcon,
@@ -169,9 +169,6 @@ export default function Skills() {
                             </div>
                           </div>
 
-                          <div className="flex items-center gap-1 font-mono text-[10px] text-[var(--color-secondary-accent)] opacity-0 group-hover:opacity-100 transition-opacity">
-                            <Sparkles className="w-3 h-3" />
-                          </div>
                         </div>
                       );
                     })}

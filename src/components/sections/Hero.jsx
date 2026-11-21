@@ -1,11 +1,9 @@
 import { useState, useEffect } from 'react';
-import { ArrowRight, FileDown, Terminal, Mail, Sparkles, Cpu, ShieldCheck } from 'lucide-react';
+import { ExternalLink, FileDown, Terminal, Mail, Cpu } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from '../common/SocialIcons';
-import ResumeModal from '../common/ResumeModal';
 import { personalData } from '../../data/personal';
 
 export default function Hero() {
-  const [resumeModalOpen, setResumeModalOpen] = useState(false);
   const [mousePos, setMousePos] = useState({ x: 50, y: 30 });
 
   // Subtle mouse-following lighting effect on desktop
@@ -20,25 +18,6 @@ export default function Hero() {
     window.addEventListener('mousemove', handleMouseMove, { passive: true });
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
-
-  const handleResumeClick = () => {
-    if (personalData.resumeUrl && !personalData.resumeUrl.startsWith('#')) {
-      const link = document.createElement('a');
-      link.href = personalData.resumeUrl;
-      link.setAttribute('download', 'Irfan_Hossain_Resume.pdf');
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    } else {
-      setResumeModalOpen(true);
-    }
-  };
-
-  const handleScrollTo = (e, id) => {
-    e.preventDefault();
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
-  };
 
   return (
     <>
@@ -83,7 +62,7 @@ export default function Hero() {
 
               {/* Tagline */}
               <p className="mt-4 text-xl sm:text-2xl md:text-3xl font-bold text-[var(--color-text-primary)] tracking-tight">
-                "{personalData.tagline}"
+                {personalData.tagline}
               </p>
 
               {/* Professional Introduction */}
@@ -94,22 +73,25 @@ export default function Hero() {
               {/* Action Buttons */}
               <div className="mt-8 flex flex-wrap items-center gap-4 w-full sm:w-auto">
                 <a
-                  href="#projects"
-                  onClick={(e) => handleScrollTo(e, 'projects')}
-                  className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl font-mono text-xs sm:text-sm font-semibold bg-[var(--color-primary-accent)] text-white hover:opacity-95 shadow-lg shadow-blue-500/25 transition-all group"
+                  href={personalData.resumeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="View Irfan Hossain's resume in a new tab"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-mono text-xs sm:text-sm font-semibold border border-[var(--color-border-subtle)] bg-[var(--color-surface)] text-[var(--color-text-primary)] hover:border-[var(--color-primary-accent)] hover:text-[var(--color-primary-accent)] hover:-translate-y-0.5 transition-all shadow-sm"
                 >
-                  <span>Explore My Projects</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  <ExternalLink className="w-4 h-4 text-[var(--color-secondary-accent)]" />
+                  <span>View Resume</span>
                 </a>
 
-                <button
-                  type="button"
-                  onClick={handleResumeClick}
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-mono text-xs sm:text-sm font-semibold border border-[var(--color-border-subtle)] bg-[var(--color-surface)] text-[var(--color-text-primary)] hover:border-[var(--color-primary-accent)] hover:text-[var(--color-primary-accent)] transition-all shadow-sm"
+                <a
+                  href={personalData.resumeUrl}
+                  download={personalData.resumeFileName}
+                  aria-label="Download Irfan Hossain's resume"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-mono text-xs sm:text-sm font-semibold bg-[var(--color-primary-accent)] text-white hover:bg-blue-500 hover:-translate-y-0.5 shadow-lg shadow-blue-500/25 transition-all"
                 >
-                  <FileDown className="w-4 h-4 text-[var(--color-secondary-accent)]" />
+                  <FileDown className="w-4 h-4" />
                   <span>Download Resume</span>
-                </button>
+                </a>
               </div>
 
               {/* Direct Channels & Social Icons */}
@@ -208,28 +190,13 @@ export default function Hero() {
                     </div>
                   </div>
 
-                  {/* Tasteful Geometric Footer Decorations */}
-                  <div className="mt-4 pt-3 border-t border-[var(--color-border-subtle)] flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <div className="p-1 rounded bg-[var(--color-primary-accent)]/10 text-[var(--color-secondary-accent)]">
-                        <Sparkles className="w-3.5 h-3.5" />
-                      </div>
-                      <span className="text-xs font-mono font-medium text-[var(--color-text-primary)]">
-                        Turning Ideas into Digital Solutions
-                      </span>
-                    </div>
-
-                    <div className="flex items-center gap-1 font-mono text-[10px] text-[var(--color-text-muted)]">
-                      <ShieldCheck className="w-3 h-3 text-[var(--color-primary-accent)]" />
-                      <span>2026</span>
-                    </div>
+                  {/* Tagline Footer */}
+                  <div className="mt-4 pt-3 border-t border-[var(--color-border-subtle)]">
+                    <span className="text-xs font-mono font-medium text-[var(--color-text-primary)]">
+                      Turning Ideas into Digital Solutions
+                    </span>
                   </div>
 
-                </div>
-
-                {/* Subtle Decorative Geometric Coordinate Tag */}
-                <div className="hidden sm:flex absolute -bottom-3 -left-3 px-3 py-1 rounded-md border border-[var(--color-border-subtle)] bg-[var(--color-bg)] font-mono text-[9px] text-[var(--color-text-muted)] shadow-sm">
-                  PORTFOLIO ARCHITECTURE // v1.0
                 </div>
 
               </div>
@@ -240,11 +207,6 @@ export default function Hero() {
         </div>
       </section>
 
-      {/* Configurable Resume Modal */}
-      <ResumeModal
-        isOpen={resumeModalOpen}
-        onClose={() => setResumeModalOpen(false)}
-      />
     </>
   );
 }

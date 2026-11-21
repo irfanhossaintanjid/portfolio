@@ -3,7 +3,6 @@ import { Menu, X, FileDown } from 'lucide-react';
 import { useRouter } from '../../context/RouterContext';
 import ThemeToggle from '../common/ThemeToggle';
 import MobileNavigation from './MobileNavigation';
-import ResumeModal from '../common/ResumeModal';
 import { personalData } from '../../data/personal';
 
 const NAV_ITEMS = [
@@ -19,7 +18,6 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [resumeModalOpen, setResumeModalOpen] = useState(false);
 
   // Scroll detection & active section spy
   useEffect(() => {
@@ -72,20 +70,6 @@ export default function Navbar() {
     }
     window.scrollTo({ top: 0, behavior: 'smooth' });
     setMobileMenuOpen(false);
-  };
-
-  const handleResumeClick = () => {
-    // If a real resume PDF URL is configured, trigger download; otherwise open the modal
-    if (personalData.resumeUrl && !personalData.resumeUrl.startsWith('#')) {
-      const link = document.createElement('a');
-      link.href = personalData.resumeUrl;
-      link.setAttribute('download', 'Irfan_Hossain_Resume.pdf');
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    } else {
-      setResumeModalOpen(true);
-    }
   };
 
   return (
@@ -153,14 +137,15 @@ export default function Navbar() {
             <div className="flex items-center gap-2.5">
               
               {/* Resume Download / View Button */}
-              <button
-                type="button"
-                onClick={handleResumeClick}
+              <a
+                href={personalData.resumeUrl}
+                download={personalData.resumeFileName}
+                aria-label="Download Irfan Hossain's resume"
                 className="hidden sm:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-mono font-medium border border-[var(--color-primary-accent)]/40 bg-[var(--color-primary-accent)]/10 text-[var(--color-secondary-accent)] hover:bg-[var(--color-primary-accent)] hover:text-white transition-all duration-200 shadow-sm"
               >
                 <FileDown className="w-3.5 h-3.5" />
                 <span>Resume</span>
-              </button>
+              </a>
 
               {/* Theme Toggle Button */}
               <ThemeToggle />
@@ -187,13 +172,6 @@ export default function Navbar() {
         navItems={NAV_ITEMS}
         activeSection={activeSection}
         onNavClick={handleNavClick}
-        onResumeClick={handleResumeClick}
-      />
-
-      {/* Resume Modal */}
-      <ResumeModal
-        isOpen={resumeModalOpen}
-        onClose={() => setResumeModalOpen(false)}
       />
     </>
   );

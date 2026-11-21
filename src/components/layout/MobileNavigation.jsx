@@ -1,13 +1,13 @@
 import { FileDown, X, ChevronRight } from 'lucide-react';
 import ThemeToggle from '../common/ThemeToggle';
+import { personalData } from '../../data/personal';
 
 export default function MobileNavigation({
   isOpen,
   onClose,
   navItems,
   activeSection,
-  onNavClick,
-  onResumeClick
+  onNavClick
 }) {
   if (!isOpen) return null;
 
@@ -75,17 +75,18 @@ export default function MobileNavigation({
 
         {/* Action Button */}
         <div className="pt-2">
-          <button
-            type="button"
+          <a
+            href={personalData.resumeUrl}
+            download={personalData.resumeFileName}
+            aria-label="Download Irfan Hossain's resume"
             onClick={() => {
               onClose();
-              onResumeClick();
             }}
             className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-mono text-sm font-semibold bg-[var(--color-primary-accent)] text-white hover:opacity-95 shadow-lg shadow-blue-500/20 transition-all"
           >
             <FileDown className="w-4 h-4" />
             <span>Download Resume</span>
-          </button>
+          </a>
         </div>
       </div>
     </div>
